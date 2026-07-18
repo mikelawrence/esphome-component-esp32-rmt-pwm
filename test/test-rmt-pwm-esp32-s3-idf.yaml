@@ -1,0 +1,30 @@
+substitutions:
+  ref: main
+
+esphome:
+  name: test-ld2410s-esp32-s3-idf
+  friendly_name: Test LD2410S Component with ESP32-S3 and ESP-IDF Framework
+
+esp32:
+  variant: ESP32C3
+  framework:
+    type: esp-idf
+
+external_components:
+  source:
+    type: git
+    url: https://github.com/mikelawrence/esphome-components-esp32-rmt-pwm
+    ref: ${ref}
+
+output:
+  - platform: esp32_rmt_pwm
+    id: fan_pwm_output
+    pin: GPIO4
+    frequency: 25kHz
+    rmt_symbols: 96
+
+fan:
+  - platform: speed
+    name: "RMT PWM Fan"
+    output: fan_pwm_output
+    speed_count: 3
