@@ -11,10 +11,7 @@ esp32:
     type: arduino
 
 external_components:
-  source:
-    type: git
-    url: https://github.com/mikelawrence/esphome-component-esp32-rmt-pwm
-    ref: ${ref}
+  - source: github://mikelawrence/esphome-component-esp32-rmt-pwm@${ref}
 
 output:
   - platform: esp32_rmt_pwm
