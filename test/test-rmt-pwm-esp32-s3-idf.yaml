@@ -2,8 +2,8 @@ substitutions:
   ref: main
 
 esphome:
-  name: test-ld2410s-esp32-s3-idf
-  friendly_name: Test LD2410S Component with ESP32-S3 and ESP-IDF Framework
+  name: test-rmt-pwm-esp32-s3-idf
+  friendly_name: Test ESP32 RMT PWM Output Component with ESP32-S3 and ESP-IDF Framework
 
 esp32:
   variant: ESP32C3
