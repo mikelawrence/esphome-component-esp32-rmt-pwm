@@ -6,7 +6,7 @@
 namespace esphome {
 namespace esp32_rmt_pwm {
 
-static const char *const TAG = "esp32_rmt_pwm";
+ESPHOME_LOG_TAG(TAG, "esp32_rmt_pwm");
 
 void ESP32RMTPWMOutput::setup() {
   if (this->pin_ == nullptr) {
