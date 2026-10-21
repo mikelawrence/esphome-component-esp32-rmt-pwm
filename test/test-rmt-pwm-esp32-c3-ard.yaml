@@ -1,6 +1,9 @@
 substitutions:
   ref: main
 
+logger:
+  level: VERY_VERBOSE
+
 esphome:
   name: test-rmt-pwm-esp32-c3-ard
   friendly_name: Test ESP32 RMT PWM Output Component with ESP32-S3 and Arduino Framework
