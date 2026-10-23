@@ -1,12 +1,17 @@
 #include "esp32_rmt_pwm_output.h"
 #include "esphome/core/log.h"
+#include "esphome/core/version.h"
 
 #ifdef USE_ESP32
 
 namespace esphome {
 namespace esp32_rmt_pwm {
 
+#if ESPHOME_VERSION_CODE >= VERSION_CODE(2026, 10, 0)
+ESPHOME_LOG_TAG(TAG, "esp32_rmt_pwm");
+#else
 static const char *const TAG = "esp32_rmt_pwm";
+#endif
 
 void ESP32RMTPWMOutput::setup() {
   if (this->pin_ == nullptr) {
