@@ -9,7 +9,7 @@ This component provides a continuous PWM output using an RMT TX channel in infin
 ```yaml
 # Sample configuration entry example
 external_components:
-  - source: github://mikelawrence/esphome-components-esp32-rmt-pwm
+  - source: github://mikelawrence/esphome-component-esp32-rmt-pwm
     components:
       - esp32_rmt_pwm
 
@@ -27,7 +27,19 @@ fan:
     speed_count: 3
 ```
 
-## Configuration Variables
+## Output
+
+The `esp32_rmt_pwm` output can be used by any component that accepts a float output.
+
+```yaml
+output:
+  - platform: esp32_rmt_pwm
+    id: fan_pwm_output
+    pin: GPIO4
+    frequency: 25kHz
+```
+
+### Configuration Variables
 
 * **id** (*Required*, ID)
   The ID of the output component. This is used to reference the output from other ESPHome components (lights, fans, custom components, etc.).
@@ -53,6 +65,10 @@ fan:
   Number of RMT symbols allocated for the TX channel (`mem_block_symbols`).
 
   This value controls how much RMT memory is reserved for this channel. The component itself uses a single symbol for the PWM period, but the allocation size still affects resource usage and plays more of a role if the implementation is later extended. You should override the default if you need to optimize RMT memory usage or are running multiple RMT-based components.
+
+  Defaults to `96` on ESP32-C3, C5, C6 and H2, and `192` on ESP32, P4, S2 and S3.
+
+* All other [float output options](https://esphome.io/components/output/#base-output-configuration), including `inverted`, `power_supply`, `min_power`, `max_power` and `zero_means_zero`.
 
 ## Development with VS Code Dev Containers
 
